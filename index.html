@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="quiz.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+</head>
+<style>
+    .options{
+        margin: .2rem;
+        padding: .3rem 1rem;
+        border: 1px solid black;
+        border-radius: .3rem;
+        width: 16rem;
+        text-align: start;
+    }
+    .footer{
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+    #next{
+        margin: .2rem;
+        padding: .3rem 1rem;
+        border: 1px solid black;
+        border-radius: .3rem;
+    }
+</style>
+<body>
+    <div class="container">
+        <div id="question">Question?</div>
+        <br>
+        <div class="option-container">
+            <button class="options" id="option1" value="1">1st option</button> <br>
+            <button class="options" id="option2" value="2">2nd option</button> <br>
+            <button class="options" id="option3" value="3">3rd option</button> <br>
+            <button class="options" id="option4" value="4">4th option</button> 
+        </div>
+        <div class="footer">
+            <p id="questionCounter">Questions: 0/0</p>
+            <button id="next">Next</button>
+            <p id="scoreCounter">Score: 0/0</p>
+        </div>
+    </div>
+</body>
+<script>
+
+const quizData = [
+    {
+        question: 'What is SQL used for?',
+        option1 : 'Database management',
+        option2 : 'Graphics design',
+        option3 : 'Web development',
+        option4 : 'Text editing',
+        answer: 1,
+    },
+    {
+        question: 'What does CSS stand for?',
+        option1 : 'Cascading Style Sheets',
+        option2 : 'Computer Science Software',
+        option3 : 'Code Style System',
+        option4 : 'Creative Styling Script',
+        answer: 1,
+    },
+    {
+        question: 'Which symbol is used to comment out a line in many programming languages?',
+        option1 : '//',
+        option2 : '##',
+        option3 : '/* */',
+        option4 : '--',
+        answer: 1,
+    },
+    {
+        question: 'What is the main purpose of the "if" statement in programming?',
+        option1 : 'Looping',
+        option2 : 'Variable declaration',
+        option3 : 'Conditional execution',
+        option4 : 'Function definition',
+        answer: 3,
+    },
+    {
+        question: 'Which programming language is often used for building IOS mobile applications?',
+        option1 : 'C++',
+        option2 : 'Python',
+        option3 : 'Swift',
+        option4 : 'Java',
+        answer: 3,
+    },
+    {
+        question: 'What is the result of 1 + 1 in binary?',
+        option1 : '1',
+        option2 : '2',
+        option3 : '3',
+        option4 : '11',
+        answer: 3,
+    },
+    {
+        question: 'Which data type is used to represent true/false values in programming?',
+        option1 : 'Boolean',
+        option2 : 'String',
+        option3 : 'Integer',
+        option4 : 'Float',
+        answer: 1,
+    },
+    {
+        question: 'What does HTML stand for?',
+        option1 : 'HyperText Markup Language',
+        option2 : 'Highly Textured Machine Language',
+        option3 : 'Hyperlink and Text Markup Language',
+        option4 : 'HyperTransfer Markup Language',
+        answer: 1,
+    },
+    {
+        question: 'In JavaScript, what does the "typeof" operator return for an array?',
+        option1 : 'Array',
+        option2 : 'Object',
+        option3 : 'List',
+        option4 : 'Function',
+        answer: 2,
+    },
+    {
+        question: 'What does IDE stand for in the context of programming?',
+        option1 : 'Integrated Development Environment',
+        option2 : 'Interactive Data Exchange',
+        option3 : 'Internet Development Engine',
+        option4 : 'Integrated Design Environment',
+        answer: 1,
+    },
+];
+
+let index = 0;
+let score = 0;
+let buttonClicked = false;
+let answer;
+let options = document.querySelectorAll(".options");
+
+loadPage();
+function loadPage(){
+    document.getElementById("question").innerHTML = `${index+1}. ${quizData[index].question}`;
+    document.getElementById("option1").innerHTML = quizData[index].option1;
+    document.getElementById("option2").innerHTML = quizData[index].option2;
+    document.getElementById("option3").innerHTML = quizData[index].option3;
+    document.getElementById("option4").innerHTML = quizData[index].option4;
+    answer = quizData[index].answer;
+
+    options.forEach((option)=>{
+        option.style.background = "transparent";
+    });
+
+    document.getElementById("questionCounter").innerHTML = `Questions: ${index+1}/${quizData.length}`;
+    document.getElementById("scoreCounter").innerHTML = `Score: ${score}/${quizData.length}`;
+
+    buttonClicked = false;
+    checkOption();
+}
+
+function checkOption(){
+    options.forEach((option)=>{
+        option.addEventListener("click",()=>{
+            if(buttonClicked == false){
+                if(option.value == answer){
+                    option.style.background = "lightGreen";
+                    document.getElementById("scoreCounter").innerHTML = `Score: ${++score}/${quizData.length}`;
+                }
+                else{
+                    option.style.background = "orange";
+                    options.forEach((option)=>{
+                        if(option.value == answer){
+                            option.style.background = "lightGreen";
+                        }
+                    });
+                }
+                buttonClicked = true;
+            }
+        });
+    });
+}
+
+
+document.getElementById("next").addEventListener("click",()=>{
+    if(buttonClicked == true){
+        if((index+1) < quizData.length){
+            index++;
+            loadPage();
+        }
+        else{
+            document.getElementById("question").style.display = "none";
+            options.forEach((option)=>{
+                option.style.display = "none";
+            });
+            document.getElementById("questionCounter").style.display = "none";
+            document.getElementById("next").style.display = "none";
+        }
+    } 
+});
+
+
+</script>
+</html>

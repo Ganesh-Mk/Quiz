@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="quiz.jpg">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/css2?family=Capriola&display=swap" rel="stylesheet">
+    <title>Quiz</title>
+</head>
+<body>
+    <div class="mainContainer">
+
+        <div id="loginPage" class="container">
+            <h1 id="quizHeading">Quiz</h1>
+            <input spellcheck="false" autocomplete="off" id="userName" type="text" placeholder="Enter your name">
+            <div class="quizOptionContainer">
+                <button class="quizOptions"  id="cQuiz">C Quiz</button>
+                <button class="quizOptions" id="javaQuiz">Java Quiz</button>
+                <button class="quizOptions" id="javaScriptQuiz">JavaScript Quiz</button>
+            </div>
+        </div>
+        <div id="mainPage" class="container">
+            <div id="questionContainer">
+                <pre id="question">Question?</pre>
+            </div>
+            <br>
+            <div class="option-container"> 
+                                                                                     <span id="correctIcon1" class="material-symbols-outlined icons">check_circle</span> <span id="wrongIcon1" class="material-symbols-outlined icons">cancel</span>
+                <button class="options" id="option1" value="1">1st option</button>   <span id="correctIcon2" class="material-symbols-outlined icons">check_circle</span> <span id="wrongIcon2" class="material-symbols-outlined icons">cancel</span> <br>
+                <button class="options" id="option2" value="2">2nd option</button>   <span id="correctIcon3" class="material-symbols-outlined icons">check_circle</span> <span id="wrongIcon3" class="material-symbols-outlined icons">cancel</span> <br>
+                <button class="options" id="option3" value="3">3rd option</button>   <span id="correctIcon4" class="material-symbols-outlined icons">check_circle</span> <span id="wrongIcon4" class="material-symbols-outlined icons">cancel</span> <br>
+                <button class="options" id="option4" value="4">4th option</button>   
+            </div>
+            <p id="congratsMsg">Congrats</p>
+
+        </div>
+        <div id="footerContainer" class="footer">
+            <div>
+                <p id="questionCounter">Questions: 0/0</p>
+                <p id="scoreCounter">Score: 0/0</p>
+            </div>
+            <div>
+                <button id="next">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="scorePage" class="mainContainer">
+        <div class="scoreContainer container">
+            <div class="scoreInfo">
+                <p id="scoreInfo-name">Congrats Name</p>
+                <p id="scoreInfo-score">you scored: 0/0</p>
+            </div>
+            <div>
+                <button id="next" class="tryAgain">Try again</button>
+            </div>
+        </div>
+        <div class="records container">
+            <div class="scoreHeadContainer">
+                <h2>Score Board</h2>
+                <p>Top 5</p>
+            </div>
+           
+            <div class="scoreBoard">
+                <p>Top</p>
+                <div class="scoreRight">
+                    <p>Names</p>
+                    <p>Score</p>
+                </div>
+                
+            </div>
+            <div class="scoreBoardElements">
+                <div class="serialNum">
+                    
+                </div>
+                <div class="scoreRight">
+                    <div class="names">
+                        
+                    </div>
+                    <div class="score">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <script type="module" src="script.js"></script>
+</body>
+<script>
+    
+//document.getElementById('loginPage').style.display = "none";
+document.getElementById('mainPage').style.display = "none";
+document.getElementById('footerContainer').style.display = "none";
+document.getElementById('scorePage').style.display = "none";
+
+</script>
+</html>

@@ -1,0 +1,241 @@
+html{
+    font-size: 100%; /* for responsive (rem) */
+}
+
+*{
+    user-select: none;
+    font-family: 'Capriola', sans-serif;
+}
+
+
+/* ============  Login Page ==============*/
+
+#loginPage{
+    padding: 2rem .5rem;
+}
+#loginPage h1{
+    font-size: 3rem;
+}
+#loginPage input{
+    text-align: center;
+    padding: .6rem 1rem;
+    font-size: 1rem;
+    outline: none;
+    border-radius: 50rem;
+    border: none;
+    box-shadow: 1px 1px 4px -1px black;
+}
+.quizOptionContainer{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+}
+
+.quizOptions{
+    margin: .5rem 0;
+    padding: .5rem 1.8rem;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    background: linear-gradient(200deg, #fdebb2bd, #f78fadbe);
+    font-size: 1.2rem;
+    box-shadow: 1px 1px 6px -2px black;
+}
+
+
+
+
+
+
+/* ============  Main Page ==============*/
+
+
+
+
+
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24,
+
+}
+body{
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(200deg, #FDEBB2, #F78FAD);
+}
+
+.container{
+    width: 18rem;
+    padding: 1.5rem;
+    display: grid;
+    box-shadow: 1px 1px 7px -1px black;
+    place-items: center;
+    border-radius: 2rem;
+    background: linear-gradient(200deg, #fefdf7, #fff5f8);
+
+}
+
+#questionContainer{
+    background: linear-gradient(200deg, #fdebb28f, #f78fad96);
+    position: relative;
+    right: 1.5rem;
+    width: 19rem;
+    padding: .1rem 1rem;
+}
+.options{
+    margin: .3rem 0;
+    padding: 0.7rem 1.3rem;
+    border-radius: 3rem;
+    font-size: 1rem;
+    width: 18rem;
+    text-align: start;
+    cursor: pointer;
+    box-shadow: 1px 1px 4px -1px black;
+    background: transparent;
+    outline: none;
+    border: none;
+}
+#question{
+    white-space: pre-wrap;
+    line-height: 1.4;
+    margin-left: .3rem;
+}
+.footer{
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    align-items: center;
+    margin-top: 1rem;
+    width: 18rem;
+    padding: .3rem 1.5rem;
+    box-shadow: 1px 1px 7px -1px black;
+    border-radius: 2rem;
+    background: linear-gradient(200deg, #fefdf7, #fff5f8);
+}
+#next{
+    margin: .2rem;
+    padding: .5rem 1.4rem;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    background: linear-gradient(200deg, #fdebb27a, #f78fad99);
+    font-size: 1rem;
+    box-shadow: 1px 1px 4px -1px black;
+}
+
+.option-container{
+    position: relative;
+}
+
+#correctIcon1,
+#correctIcon2,
+#correctIcon3,
+#correctIcon4,
+#wrongIcon1,
+#wrongIcon2,
+#wrongIcon3,
+#wrongIcon4{
+    font-size: 1.7rem;
+}
+
+#congratsMsg{
+    display: none;
+    font-size: 1.6rem;
+}
+
+.icons{
+    position: absolute;
+    display: none;
+    left: 14.3rem;
+    margin-top: .85rem;
+    margin-left: 1.5rem;
+}
+
+
+
+
+/* ============  Score Board Page ==============*/
+
+
+
+
+.records{
+    margin-top: 1rem;
+    display: grid;
+    place-items: center;
+}
+
+.scoreBoard {
+    display: flex;
+    width: 15rem;
+    justify-content: space-between;
+    border: 1px solid black;
+    padding: 0 1.1rem;
+    border-radius: .4rem;
+}
+
+
+.scoreContainer{
+    padding: .3rem 1.4rem .1rem 1.4rem;
+}
+.scoreHeadContainer{
+    display: grid;
+    place-items: center;
+    background: linear-gradient(200deg, #fdebb28f, #f78fad96);
+    padding: 0.1rem 4rem;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+}
+.scoreBoardElements{
+    display: flex;
+    width: 14.2rem;
+    justify-content: space-between;
+    border: 1px solid black;
+    padding: 0 1.5rem;
+    border-radius: .4rem;
+}
+.scoreInfo{
+    display: grid;
+    place-items: center;
+}
+#scoreInfo-score{
+    font-size: 1.2rem;
+    margin-top: 0;
+}
+.records h2{
+    margin-bottom: 0;
+}
+
+.scoreRight{
+    display: flex;
+    width: 11.5rem;
+    justify-content: space-between;
+}
+
+.tryAgain{
+    margin-bottom: 1rem !important;
+}
+
+/* ============ Responsive Code ==============*/
+
+
+
+
+@media (max-width:370px) {
+    html{
+        font-size: 90%;
+    }
+}
+
+@media (max-width:330px) {
+    html{
+        font-size: 70%;
+    }
+}

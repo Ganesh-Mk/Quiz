@@ -239,12 +239,12 @@ export const javaScriptQuizData = [
 
 export const cQuizData = [
     {
-        question: "Which C function is used to allocate memory dynamically?",
-        option1: "malloc()",
-        option2: "calloc()",
-        option3: "realloc()",
-        option4: "free()",
-        answer: 1
+        question: "Which C header file should be included to work with dynamic memory allocation functions like malloc and free?",
+        option1: "<stdio.h>",
+        option2: "<stdlib.h>",
+        option3: "<memory.h>",
+        option4: "<alloc.h>",
+        answer: 2
     },
     {
         question: `What will be the output?:

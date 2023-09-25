@@ -238,13 +238,22 @@ export const javaScriptQuizData = [
 
 
 export const cQuizData = [
+    
     {
-        question: "Which C header file should be included to work with dynamic memory allocation functions like malloc and free?",
-        option1: "<stdio.h>",
-        option2: "<stdlib.h>",
-        option3: "<memory.h>",
-        option4: "<alloc.h>",
-        answer: 2
+        question: "Which is correct declaration of pointer?",
+        option1: "int * ptr;",
+        option2: "int* ptr;",
+        option3: "int *ptr;",
+        option4: "All of the above",
+        answer: 4
+    },
+    {
+        question: "Which C function is used to compare two strings?",
+        option1: "strcat",
+        option2: "strcmp",
+        option3: "strlen",
+        option4: "strchr",
+        answer: "2"
     },
     {
         question: `What will be the output?:
@@ -341,14 +350,7 @@ export const cQuizData = [
         option4: ".",
         answer: 2
     },
-    {
-        question: "Which is correct declaration of pointer?",
-        option1: "int * ptr;",
-        option2: "int* ptr;",
-        option3: "int *ptr;",
-        option4: "All of the above",
-        answer: 4
-    }
+    
 ];
 
 

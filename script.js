@@ -1,35 +1,104 @@
-import {cQuizData, javaQuizData, javaScriptQuizData} from "./quizData.js";
-let quizData = cQuizData;  // assigning user choiced quiz data 
+import {cQuizData, javaQuizData, javaScriptQuizData, evsAllQuizData} from "./quizData.js";
+let quizData;  // assigning user choiced quiz data 
+
+let evsOptions = document.querySelectorAll(".evsOptions");
+let evsQuizData;
+let numeberOfQuiz = 1; 
 
 let userName;
-let userChoicedQuiz; 
+let userChoicedQuiz = "evs"; 
+let fontSizeControl = false;
 let quizOptions = document.querySelectorAll(".quizOptions");
 
-quizOptions.forEach((quizOption)=>{
-    quizOption.addEventListener("click", () => {
+addButtonsClick();
+function addButtonsClick(){
+    quizOptions.forEach((quizOption)=>{
+        quizOption.addEventListener("click", () => {
+    
+            userName = document.getElementById("userName").value;
+            if(checkInputGiven()){
+                if(quizOption.innerHTML == "C Quiz"){
+                   quizData = cQuizData;
+                   userChoicedQuiz = "c";
+                }
+                else if(quizOption.innerHTML == "Java Quiz"){
+                    quizData = javaQuizData;
+                    userChoicedQuiz = "java";
+                }
+                else if(quizOption.innerHTML == "EVS Quiz"){
+                    quizData = evsAllQuizData;
+                    userChoicedQuiz = "evs";
+                    document.getElementById('loginPage').style.display = "none";
+                    document.getElementById('evsPage').style.display = "block";
+                    document.getElementById('mainPage').style.display = "none";
+                    document.getElementById('footerContainer').style.display = "none";  //instead of block
+                    fontSizeControl = true;
+                    evsQuizPage();
+                }
+                else{
+                    quizData = javaScriptQuizData;
+                    userChoicedQuiz = "javaScript";
+                }
 
-        userName = document.getElementById("userName").value;
-        if(checkInputGiven()){
-            if(quizOption.innerHTML == "C Quiz"){
-               quizData = cQuizData;
-               userChoicedQuiz = "c";
+                if(quizOption.innerHTML != "EVS Quiz"){
+                    document.getElementById('loginPage').style.display = "none";
+                    document.getElementById('mainPage').style.display = "block";
+                    document.getElementById('footerContainer').style.display = "flex";  //instead of block
+                    loadPage();
+                }
+            }  
+        })
+    })
+}
+
+
+
+
+
+
+
+// EVS Quiz Page
+
+
+function evsQuizPage(){
+    evsOptions.forEach((evsOption)=>{
+        evsOption.addEventListener("click", () => {
+
+            if(evsOption.innerHTML == "50 Quiz"){
+                numeberOfQuiz = 50;
             }
-            else if(quizOption.innerHTML == "Java Quiz"){
-                quizData = javaQuizData;
-                userChoicedQuiz = "java";
+            else if(evsOption.innerHTML == "100 Quiz"){
+                numeberOfQuiz = 100;
+            }
+            else if(evsOption.innerHTML == "250 Quiz"){
+                numeberOfQuiz = 250;
+            }
+            else if(evsOption.innerHTML == "Random 10 Quiz"){
+                let RandNum = Math.floor(Math.random() * 240);
+                evsQuizData = evsAllQuizData.slice(RandNum, RandNum+10);
             }
             else{
-                quizData = javaScriptQuizData;
-                userChoicedQuiz = "javaScript";
+                evsQuizData = evsAllQuizData.slice(0, numeberOfQuiz); 
             }
 
+            document.getElementById('evsPage').style.display = "none";
+            document.getElementById('mainPage').style.display = "block";
+            document.getElementById('footerContainer').style.display = "flex";
+            
+            quizData = evsQuizData;
+            console.log(evsQuizData);
+
+            document.getElementById('evsPage').style.display = "none";
             document.getElementById('loginPage').style.display = "none";
             document.getElementById('mainPage').style.display = "block";
             document.getElementById('footerContainer').style.display = "flex";  //instead of block
+
+            userChoicedQuiz == "evs";
             loadPage();
-        }  
+        })
     })
-})
+}
+
 
 function checkInputGiven(){
     if(document.getElementById('userName').value == ""){
@@ -96,6 +165,25 @@ function loadPage(){
     options.forEach(option => option.style.background = "transparent");
     icons.forEach(icon => icon.style.display = "none");
 
+    if(fontSizeControl == true){
+        let bigSizeOptionQuiz = [11, 47, 217, 225, 227];
+        let bigSizeQuestionQuiz = [144, 145, 213];
+
+        if (bigSizeOptionQuiz.includes(index)) {
+            options.forEach(option => option.style.fontSize = "0.82rem");
+        }
+        else{
+            options.forEach(option => option.style.fontSize = "1rem");
+        }
+
+        if (bigSizeQuestionQuiz.includes(index)) {
+            document.getElementById("question").style.fontSize = "0.8rem";
+        }
+        else{
+            document.getElementById("question").style.fontSize = "1rem";
+        }
+    }
+
     document.getElementById("questionCounter").innerHTML = `Questions:  ${index+1}/${quizData.length}`;
     document.getElementById("scoreCounter").innerHTML = `Score:  ${score}/${quizData.length}`;
 
@@ -112,7 +200,7 @@ function checkOption(){
                     document.getElementById("scoreCounter").innerHTML = `Score:  ${++score}/${quizData.length}`;
                 }
                 else{
-                    option.style.background = "linear-gradient(200deg, rgb(251 100 100), rgb(251, 206, 206))";
+                    option.style.background = "linear-gradient(200deg, rgb(251 100 100 / 70%), rgb(250 197 197))";
                     options.forEach((option)=>{
                         if(option.value == answer){
                             option.style.background = "linear-gradient(200deg, rgb(108 255 108),rgb(213 255 213))";
@@ -129,22 +217,24 @@ function checkOption(){
     });
 }
 
-document.getElementById("next").addEventListener("click",()=>{
-    if(buttonClicked == true){
-        if((index+1) < quizData.length){
-            index++;
-            loadPage();
-        }
-        else{
-            document.getElementById('mainPage').style.display = "none";
-            document.getElementById('footerContainer').style.display = "none";
-            
-            scorePage(score);
-        }
-    } 
-});
 
-
+nextButton();
+function nextButton(){
+    document.getElementById("next").addEventListener("click",()=>{
+        if(buttonClicked == true){
+            if((index+1) < quizData.length){
+                index++;
+                loadPage();
+            }
+            else{
+                document.getElementById('mainPage').style.display = "none";
+                document.getElementById('footerContainer').style.display = "none";
+                
+                scorePage(score);
+            }
+        } 
+    });
+}
 
 
 
@@ -174,6 +264,10 @@ function scorePage(score){
 }
 
 function scoreBoard(){
+    if(fontSizeControl == true){  // entered inside EVS quiz
+        document.getElementById("top5Text").innerHTML = "top 5 in EVS";
+    }
+
     let localStorageData = JSON.parse(localStorage.getItem(`${userChoicedQuiz}QuizRecords`)) || {};  // taking user choiced quiz records 
     localStorageData[userName] = score.toString();                                              // adding name and score in new o
     localStorage.setItem(`${userChoicedQuiz}QuizRecords`,JSON.stringify(localStorageData));  // adding object to localStorage
@@ -196,15 +290,16 @@ function scoreBoard(){
     }
 }
 
+let names = [];
+let scores = [];
+let serialNum = [];
 
 function addToScoreBoard(key, value){
     let namesContainer = document.querySelector(".names");
     let scoreContainer = document.querySelector(".score");
     let serialNumContainer = document.querySelector(".serialNum");
 
-    let names = [];
-    let scores = [];
-    let serialNum = [];
+
 
     serialNum[counter] = document.createElement("p");
     serialNum[counter].innerHTML = counter+1;
@@ -223,10 +318,11 @@ function addToScoreBoard(key, value){
     
 }
  
-
-
-document.querySelector(".tryAgain").onclick = ()=>{
-    location.reload();
+tryAgainButton();
+function tryAgainButton(){
+    document.querySelector(".tryAgain").onclick = ()=>{
+        location.reload();
+    }
 }
 
 
@@ -259,5 +355,18 @@ function hiddenButtons(){
         hiddenButtons();
     })
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

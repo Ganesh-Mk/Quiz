@@ -17,15 +17,19 @@ function addButtonsClick(){
     
             userName = document.getElementById("userName").value;
             if(checkInputGiven()){
-                if(quizOption.innerHTML == "C Quiz"){
+                if(quizOption.value == "c"){
                    quizData = cQuizData;
                    userChoicedQuiz = "c";
                 }
-                else if(quizOption.innerHTML == "Java Quiz"){
+                else if(quizOption.value == "java"){
                     quizData = javaQuizData;
                     userChoicedQuiz = "java";
                 }
-                else if(quizOption.innerHTML == "EVS Quiz"){
+                else if(quizOption.value == "javaScript"){
+                    quizData = javaScriptQuizData;
+                    userChoicedQuiz = "javaScript";
+                }
+                else{
                     quizData = evsAllQuizData;
                     userChoicedQuiz = "evs";
                     document.getElementById('loginPage').style.display = "none";
@@ -34,10 +38,6 @@ function addButtonsClick(){
                     document.getElementById('footerContainer').style.display = "none";  //instead of block
                     fontSizeControl = true;
                     evsQuizPage();
-                }
-                else{
-                    quizData = javaScriptQuizData;
-                    userChoicedQuiz = "javaScript";
                 }
 
                 if(quizOption.innerHTML != "EVS Quiz"){
@@ -64,21 +64,18 @@ function evsQuizPage(){
     evsOptions.forEach((evsOption)=>{
         evsOption.addEventListener("click", () => {
 
-            if(evsOption.innerHTML == "50 Quiz"){
-                numeberOfQuiz = 50;
+            if(evsOption.value == "50Quiz"){
+                evsQuizData = evsAllQuizData.slice(0, 50); 
             }
-            else if(evsOption.innerHTML == "100 Quiz"){
-                numeberOfQuiz = 100;
+            else if(evsOption.value == "100Quiz"){
+                evsQuizData = evsAllQuizData.slice(0, 100); 
             }
-            else if(evsOption.innerHTML == "250 Quiz"){
-                numeberOfQuiz = 250;
-            }
-            else if(evsOption.innerHTML == "Random 10 Quiz"){
-                let RandNum = Math.floor(Math.random() * 240);
-                evsQuizData = evsAllQuizData.slice(RandNum, RandNum+10);
+            else if(evsOption.value == "250Quiz"){
+                evsQuizData = evsAllQuizData.slice(0, 250); 
             }
             else{
-                evsQuizData = evsAllQuizData.slice(0, numeberOfQuiz); 
+                let RandNum = Math.floor(Math.random() * 240);
+                evsQuizData = evsAllQuizData.slice(RandNum, RandNum+10);
             }
 
             document.getElementById('evsPage').style.display = "none";

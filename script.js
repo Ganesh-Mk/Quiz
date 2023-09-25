@@ -1,7 +1,7 @@
 import {cQuizData, javaQuizData, javaScriptQuizData, evsAllQuizData} from "./quizData.js";
 let quizData;  // assigning user choiced quiz data 
 
-document.getElementById(`correctIcon1`).style.display = "block";
+
 
 let evsOptions = document.querySelectorAll(".evsOptions");
 let evsQuizData;
@@ -12,11 +12,22 @@ let userChoicedQuiz = "evs";
 let fontSizeControl = false;
 let quizOptions = document.querySelectorAll(".quizOptions");
 
+
+let index = 0;
+let score = 0;
+let buttonClicked = false;
+let counter = 0;
+let answer;
+let options = document.querySelectorAll(".options");
+let icons = document.querySelectorAll(".icons");
+
 addButtonsClick();
 function addButtonsClick(){
     quizOptions.forEach((quizOption)=>{
         quizOption.addEventListener("click", () => {
-    
+
+            icons.forEach(icon => icon.style.display = "none"); // for icon glitch
+            
             userName = document.getElementById("userName").value;
             if(checkInputGiven()){
                 if(quizOption.value == "c"){
@@ -100,6 +111,8 @@ function evsQuizPage(){
 
 
 function checkInputGiven(){
+    icons.forEach(icon => icon.style.display = "block"); // for icon glitch
+
     if(document.getElementById('userName').value == ""){
         document.getElementById('userName').style.boxShadow = "1px 1px 6px 0px red";
         return false;
@@ -145,13 +158,7 @@ function checkAlradyNameExist(userName){
 
 
 
-let index = 0;
-let score = 0;
-let buttonClicked = false;
-let counter = 0;
-let answer;
-let options = document.querySelectorAll(".options");
-let icons = document.querySelectorAll(".icons");
+
 
 function loadPage(){
     document.getElementById("question").innerHTML = `${index+1}.  ${quizData[index].question}`;

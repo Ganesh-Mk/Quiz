@@ -1,6 +1,8 @@
 import {cQuizData, javaQuizData, javaScriptQuizData, evsAllQuizData} from "./quizData.js";
 let quizData;  // assigning user choiced quiz data 
 
+document.getElementById(`correctIcon1`).style.display = "block";
+
 let evsOptions = document.querySelectorAll(".evsOptions");
 let evsQuizData;
 let numeberOfQuiz = 1; 

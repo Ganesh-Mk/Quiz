@@ -19,6 +19,9 @@ html{
 h1#quizHeading {
     text-align: center;
 }
+p#evsPara {
+    margin: 0;
+}
 
 #evsPage input,
 #loginPage input{

@@ -18,10 +18,22 @@
             <input spellcheck="false" autocomplete="off" id="userName" type="text" placeholder="Enter your name">
             <div class="quizOptionContainer">
                 <button class="quizOptions"  id="cQuiz">C Quiz</button>
+                <button class="quizOptions" id="evsQuiz">EVS Quiz</button>
                 <button class="quizOptions" id="javaQuiz">Java Quiz</button>
                 <button class="quizOptions" id="javaScriptQuiz">JavaScript Quiz</button>
             </div>
         </div>
+
+        <div id="evsPage" class="evsPage container">
+            <h1 id="quizHeading">EVS Quiz</h1>
+            <div class="quizOptionContainer">
+                <button class="evsOptions quizOptions" id="evs50Quiz">50 Quiz</button>
+                <button class="evsOptions quizOptions" id="evs100Quiz">100 Quiz</button>
+                <button class="evsOptions quizOptions" id="evs250Quiz">250 Quiz</button>
+                <button class="evsOptions quizOptions" id="evsRandom10Quiz">Random 10 Quiz</button>
+            </div>
+        </div>
+
         <div id="mainPage" class="container">
             <div id="questionContainer">
                 <pre id="question">Question?</pre>
@@ -61,7 +73,7 @@
         <div class="records container">
             <div class="scoreHeadContainer">
                 <h2>Score Board</h2>
-                <p>Top 5</p>
+                <p id="top5Text">Top 5</p>
             </div>
            
             <div class="scoreBoard">
@@ -94,6 +106,7 @@
 <script>
     
 //document.getElementById('loginPage').style.display = "none";
+document.getElementById('evsPage').style.display = "none";
 document.getElementById('mainPage').style.display = "none";
 document.getElementById('footerContainer').style.display = "none";
 document.getElementById('scorePage').style.display = "none";

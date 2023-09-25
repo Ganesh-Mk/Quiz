@@ -21,6 +21,7 @@ h1#quizHeading {
 }
 p#evsPara {
     margin: 0;
+    text-align: center;
 }
 
 #evsPage input,

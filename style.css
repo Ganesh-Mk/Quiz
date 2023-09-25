@@ -16,6 +16,11 @@ html{
 #loginPage h1{
     font-size: 3rem;
 }
+h1#quizHeading {
+    text-align: center;
+}
+
+#evsPage input,
 #loginPage input{
     text-align: center;
     padding: .6rem 1rem;
@@ -87,12 +92,13 @@ body{
     position: relative;
     right: 1.5rem;
     width: 19rem;
+    margin-top: .3rem;
     padding: .1rem 1rem;
 }
 .options{
     margin: .3rem 0;
-    padding: 0.7rem 1.3rem;
-    border-radius: 3rem;
+    padding: 0.7rem 2.3rem 0.7rem 1.3rem;
+    border-radius: 1.3rem;
     font-size: 1rem;
     width: 18rem;
     text-align: start;
@@ -110,7 +116,7 @@ body{
 .footer{
     display: flex;
     justify-content: center;
-    gap: 4rem;
+    gap: 2rem;
     align-items: center;
     margin-top: 1rem;
     width: 18rem;
@@ -156,8 +162,8 @@ body{
     left: 14.3rem;
     margin-top: .85rem;
     margin-left: 1.5rem;
+    
 }
-
 
 
 

@@ -1,8 +1,7 @@
 import {cQuizData, javaQuizData, javaScriptQuizData, evsAllQuizData} from "./quizData.js";
 let quizData;  // assigning user choiced quiz data 
 
-
-
+let unknownCounter = parseInt(localStorage.getItem('unknownCounter')) || 0;
 let evsOptions = document.querySelectorAll(".evsOptions");
 let evsQuizData;
 let numeberOfQuiz = 1; 
@@ -113,12 +112,14 @@ function evsQuizPage(){
 function checkInputGiven(){
     icons.forEach(icon => icon.style.display = "block"); // for icon glitch
 
-    if(document.getElementById('userName').value == ""){
+    if (document.getElementById('userName').value == "") {
         document.getElementById('userName').style.boxShadow = "1px 1px 6px 0px red";
-        document.getElementById('userName').value == "Unknown"
-        userName = "Unknown";
+        document.getElementById('userName').value = `Unknown ${unknownCounter + 1}`;
+        userName = `Unknown ${unknownCounter + 1}`;
+        unknownCounter++;
+        localStorage.setItem('unknownCounter', unknownCounter); // Store the updated counter
         return true;
-    }
+    } 
     else{
         if(userName.length >= 15){
             document.getElementById('userName').style.boxShadow = "1px 1px 6px 0px red";

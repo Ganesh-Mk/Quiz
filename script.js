@@ -115,7 +115,9 @@ function checkInputGiven(){
 
     if(document.getElementById('userName').value == ""){
         document.getElementById('userName').style.boxShadow = "1px 1px 6px 0px red";
-        return false;
+        document.getElementById('userName').value == "Unknown"
+        userName = "Unknown";
+        return true;
     }
     else{
         if(userName.length >= 15){

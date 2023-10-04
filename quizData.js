@@ -549,7 +549,10 @@ export const evsAllQuizData = [
         answer: 1
     },
     {
-        question: "What is common to the techniques (i) in vitro fertilization, (ii) Cryo preservation and (iii) tissue culture? ",
+        question: `What is common to the techniques 
+        (i) in vitro fertilization, 
+        (ii) Cryo preservation 
+        (iii) tissue culture? `,
         option1: "All are in situ conservation methods",
         option2: "All are ex situ conservation methods ",
         option3: "All require ultra-modern equipment and large space ",
@@ -2178,7 +2181,8 @@ export const evsAllQuizData = [
         I. In this rain forest there might be at least two million insects species waiting to be discovered and named. 
         II. This forest is known as lungs of the planet. 
         III. In this forest digging of mine is performed by dynamine. 
-        IV. This forest are destroyed for the cultivation of soyabeans. V. This forest contains world famous Biodiversity`,
+        IV. This forest are destroyed for the cultivation of soyabeans. 
+        V. This forest contains world famous Biodiversity`,
         option1: "i, ii, iv, v ",
         option2: "i, ii, iii, iv ",
         option3: "ii, iii, iv, v ",

@@ -126,12 +126,7 @@ function checkInputGiven(){
             document.getElementById("userName").placeholder = "Enter small name";
             return false;
         }
-        else if(checkAlradyNameExist(userName)){
-            document.getElementById('userName').style.boxShadow = "1px 1px 6px 0px red";
-            document.getElementById("userName").value = "";
-            document.getElementById("userName").placeholder = "Name already exist";
-            return false;
-        }
+       
         else{
             let capitalize = document.getElementById("userName").value;
             userName = capitalize.charAt(0).toUpperCase() + capitalize.slice(1);
